@@ -1,0 +1,91 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# After every save here, a GitHub Action rebuilds the actual site pages
+# from these files — nothing to run manually, just wait ~1 minute and
+# refresh the site.
+site_url: https://khoryakova.com/
+display_url: https://khoryakova.com/
+logo_url: /assets/img/hero.jpg
+
+media_folder: "assets/img/blog"
+public_folder: "assets/img/blog"
+
+locale: "uk"
+
+collections:
+  - name: "posts"
+    label: "Статті блогу"
+    label_singular: "Стаття"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{lang}}"
+    sortable_fields: ["date", "title"]
+    fields:
+      - label: "Заголовок"
+        name: "title"
+        widget: "string"
+        hint: "Головний заголовок статті. Він же буде посиланням у списку статей."
+
+      - label: "Мова статті"
+        name: "lang"
+        widget: "select"
+        options:
+          - { label: "Українська", value: "uk" }
+          - { label: "Русский", value: "ru" }
+          - { label: "English", value: "en" }
+        default: "uk"
+        hint: "Одна стаття = одна мова. Не потрібно перекладати кожну статтю тричі — пишіть тією мовою, якою зручно."
+
+      - label: "Дата публікації"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD.MM.YYYY"
+        time_format: false
+        default: ""
+
+      - label: "Головне фото (обкладинка)"
+        name: "cover"
+        widget: "image"
+        hint: "Показується у списку статей і зверху самої статті. Рекомендований формат — горизонтальне фото."
+
+      - label: "Короткий опис (лід)"
+        name: "excerpt"
+        widget: "text"
+        hint: "1-2 речення. Використовується для попереднього перегляду в соцмережах і пошуковиках — у списку статей на сайті не показується."
+        required: false
+
+      - label: "Текст статті"
+        name: "body"
+        widget: "markdown"
+        hint: >
+          Тут пишете основний текст. У панелі інструментів зверху:
+          підзаголовки (кнопка "Heading"), цитата (кнопка "Quote" —
+          виділяє текст як цитату), фото в будь-якому місці статті
+          (кнопка із зображенням, можна вставляти скільки завгодно),
+          жирний/курсив, список, посилання.
+        buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+        editor_components:
+          - image
+
+      - label: "Схожі статті (посилання внизу сторінки)"
+        name: "related"
+        widget: "relation"
+        collection: "posts"
+        search_fields: ["title"]
+        display_fields: ["title"]
+        value_field: "title"
+        multiple: true
+        required: false
+        hint: "Оберіть зі списку вже написаних статей тією ж мовою — вони з'являться посиланнями внизу під текстом."

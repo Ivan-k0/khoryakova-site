@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="<%= site.lang %>">
+<head>
+<%- include('partials/head', { pageTitle: site.blog.indexTitle, pageDescription: site.meta.description }) %>
+</head>
+<body>
+
+<%- include('partials/header', { site, root, langPaths, activeLang }) %>
+
+<section style="padding-top:64px;">
+  <div class="wrap">
+    <div class="section-head reveal in">
+      <div class="kicker"><%= site.blog.indexKicker %></div>
+      <h2><%= site.blog.indexHeading %></h2>
+    </div>
+    <% if (posts.length === 0) { %>
+      <p style="text-align:center;color:var(--ink-soft);font-family:'Cormorant',serif;font-style:italic;font-size:19px;"><%= site.blog.emptyText %></p>
+    <% } else { %>
+    <div class="blog-grid">
+      <% posts.forEach(function(post) { %>
+      <a class="post-card reveal in" href="<%= post.href %>">
+        <% if (post.cover) { %>
+        <div class="photo">
+          <img src="<%= post.coverSrc %>" alt="<%= post.title %>" loading="lazy">
+        </div>
+        <% } %>
+        <h3><%= post.title %></h3>
+        <div class="date"><%= post.dateLabel %></div>
+      </a>
+      <% }) %>
+    </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/footer', { site, root }) %>
+
+</body>
+</html>

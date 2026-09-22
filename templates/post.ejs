@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="<%= site.lang %>">
+<head>
+<%- include('partials/head', { pageTitle: post.title + ' — ' + site.logo, pageDescription: post.excerpt || site.meta.description }) %>
+</head>
+<body>
+
+<%- include('partials/header', { site, root, langPaths, activeLang }) %>
+
+<section style="padding-top:64px;">
+  <div class="wrap">
+    <div style="max-width:68ch;margin:0 auto 40px;">
+      <a href="<%= root %>blog/" class="btn-line" style="margin-bottom:32px;display:inline-block;"><%= site.blog.backLink %></a>
+      <div class="kicker" style="text-align:left;"><%= post.dateLabel %></div>
+      <h1 style="font-size:clamp(30px,4.5vw,48px);line-height:1.15;text-transform:none;margin-bottom:0;"><%= post.title %></h1>
+    </div>
+    <% if (post.cover) { %>
+    <div class="photo reveal in" style="max-width:900px;aspect-ratio:16/10;margin:0 auto 48px;">
+      <img src="<%= post.coverSrc %>" alt="<%= post.title %>" loading="eager">
+    </div>
+    <% } %>
+    <div class="post-body reveal in">
+      <%- post.bodyHtml %>
+    </div>
+
+    <% if (relatedPosts && relatedPosts.length > 0) { %>
+    <div class="related reveal in">
+      <div class="kicker"><%= site.blog.relatedHeading %></div>
+      <ul class="list-min">
+        <% relatedPosts.forEach(function(rp) { %>
+        <li><a href="<%= rp.href %>" style="border-bottom:1px solid var(--line);"><%= rp.title %></a></li>
+        <% }) %>
+      </ul>
+    </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/footer', { site, root }) %>
+
+</body>
+</html>

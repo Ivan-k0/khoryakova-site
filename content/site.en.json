@@ -1,0 +1,65 @@
+{
+  "lang": "en",
+  "meta": {
+    "title": "Anastasiia Khoryakova — Family & Crisis Psychologist, Odesa",
+    "description": "Burnout, loneliness, betrayal, relationships falling apart. In-person sessions in Odesa and online. CBT-certified consultant."
+  },
+  "schema": {
+    "name": "Anastasiia Khoryakova",
+    "jobTitle": "Family & Crisis Psychologist",
+    "addressLocality": "Odesa",
+    "credentialName": "Fundamentals of Cognitive Behavioral Therapy (CBT)",
+    "recognizedBy": "CBT Association"
+  },
+  "nav": {
+    "about": "About",
+    "services": "What I help with",
+    "cta": "Book a session",
+    "menuLabel": "Menu"
+  },
+  "logo": "Anastasiia Khoryakova",
+  "hero": {
+    "eyebrow": "Family & crisis psychologist",
+    "titleHtml": "When your relationship is falling apart and you're out of strength — <em style=\"font-style:italic;color:var(--accent);\">there is a way out</em>",
+    "lede": "Emotional exhaustion, loneliness, burnout. Betrayal and loss of trust. Relationships that no longer hold together. In-person sessions in Odesa and online — at your own pace, without judgment.",
+    "ctaPrimary": "Book a consultation",
+    "ctaSecondary": "What I work with",
+    "badgeText": "IN PERSON IN ODESA • ONLINE WORLDWIDE",
+    "photoAlt": "Anastasiia Khoryakova, family & crisis psychologist",
+    "photoTag": "Odesa · Online"
+  },
+  "services": {
+    "kicker": "What I work with",
+    "headingHtml": "Three themes people<br>come to me with most often",
+    "cards": [
+      { "num": "01", "title": "Relationship crises", "text": "Betrayal, broken trust, relationships falling apart. We figure out whether there's still a way forward together — and how." },
+      { "num": "02", "title": "Burnout & loneliness", "text": "Emotional exhaustion, the feeling of carrying everything alone. Reconnecting with yourself and your own resources." },
+      { "num": "03", "title": "Teens & self-esteem", "text": "The crisis of adolescence — and self-confidence at any age." }
+    ]
+  },
+  "about": {
+    "kicker": "About me",
+    "heading": "CBT-certified consultant",
+    "photoAlt": "Anastasiia Khoryakova",
+    "body": "I work with adults and teenagers going through a relationship crisis or feeling like they can no longer stay afloat on their own. Certified qualification — \"Fundamentals of Cognitive Behavioral Therapy\" certificate, 240 academic hours, CBT Association.",
+    "list": [
+      { "num": "01", "text": "First meeting — getting acquainted and defining the request, 50 min." },
+      { "num": "02", "text": "Regular sessions, in person in Odesa or by video call." },
+      { "num": "03", "text": "Booking and the first conversation — on Telegram or Instagram." }
+    ]
+  },
+  "footer": {
+    "location": "Odesa · in-person & online",
+    "telegram": "Telegram",
+    "instagram": "Instagram"
+  },
+  "blog": {
+    "navLabel": "Blog",
+    "indexTitle": "Blog — Anastasiia Khoryakova",
+    "indexHeading": "Blog",
+    "indexKicker": "Articles & thoughts",
+    "emptyText": "No articles in this language yet.",
+    "relatedHeading": "Read next",
+    "backLink": "← All articles"
+  }
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="<%= site.lang %>">
+<head>
+<%- include('partials/head', { pageTitle: site.meta.title, pageDescription: site.meta.description }) %>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "<%= site.schema.name %>",
+  "jobTitle": "<%= site.schema.jobTitle %>",
+  "url": "https://khoryakova.com/<%= canonicalPath %>",
+  "image": "https://khoryakova.com/assets/img/hero.jpg",
+  "address": { "@type": "PostalAddress", "addressLocality": "<%= site.schema.addressLocality %>", "addressCountry": "UA" },
+  "sameAs": ["https://www.instagram.com/psykholoh.khoriakova", "https://t.me/khoryakova"],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "certificate",
+    "name": "<%= site.schema.credentialName %>",
+    "recognizedBy": { "@type": "Organization", "name": "<%= site.schema.recognizedBy %>" }
+  }
+}
+</script>
+</head>
+<body>
+
+<%- include('partials/header', { site, root, langPaths, activeLang }) %>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-visual reveal d2">
+      <svg class="badge-circle" viewBox="0 0 120 120" aria-hidden="true">
+        <path id="circle<%= activeLang %>" d="M60,60 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0" fill="none"></path>
+        <text><textPath href="#circle<%= activeLang %>"><%= site.hero.badgeText %> • <%= site.hero.badgeText %> •</textPath></text>
+      </svg>
+      <div class="photo" id="hero-photo">
+        <img src="<%= root %>assets/img/hero.jpg" alt="<%= site.hero.photoAlt %>" width="848" height="1264" loading="eager">
+        <div class="photo-shine" id="photo-shine"></div>
+        <div class="tag"><%= site.hero.photoTag %></div>
+      </div>
+    </div>
+    <div class="hero-text">
+      <div class="eyebrow reveal"><%= site.hero.eyebrow %></div>
+      <h1 class="reveal d1"><%- site.hero.titleHtml %></h1>
+      <p class="lede reveal d2"><%= site.hero.lede %></p>
+      <div class="hero-actions reveal d3">
+        <a href="https://t.me/khoryakova" class="btn" target="_blank" rel="noopener"><%= site.hero.ctaPrimary %></a>
+        <a href="#services" class="btn-line"><%= site.hero.ctaSecondary %></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker"><%= site.services.kicker %></div>
+      <h2><%- site.services.headingHtml %></h2>
+    </div>
+    <div class="cards">
+      <% site.services.cards.forEach(function(card, i) { %>
+      <div class="card reveal<% if (i > 0) { %> d<%= i %><% } %>">
+        <div class="num"><%= card.num %></div>
+        <h3><%= card.title %></h3>
+        <p><%= card.text %></p>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section-alt">
+  <div class="wrap split">
+    <div class="photo reveal">
+      <img src="<%= root %>assets/img/about.jpg" alt="<%= site.about.photoAlt %>" width="896" height="1195" loading="lazy">
+    </div>
+    <div class="reveal d1">
+      <div class="kicker"><%= site.about.kicker %></div>
+      <h2 style="font-size:30px;margin-bottom:18px;text-transform:uppercase;"><%= site.about.heading %></h2>
+      <p class="ink-soft-alt" style="line-height:1.7;font-family:'Cormorant',serif;font-style:italic;font-weight:400;font-size:19px;margin:0 0 28px;"><%= site.about.body %></p>
+      <ul class="list-min">
+        <% site.about.list.forEach(function(item) { %>
+        <li><b><%= item.num %></b> <%= item.text %></li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer', { site, root }) %>
+
+</body>
+</html>

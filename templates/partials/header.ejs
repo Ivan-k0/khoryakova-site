@@ -1,0 +1,20 @@
+<header id="site-header">
+  <div class="wrap nav">
+    <div class="logo"><%= site.logo %><span class="rule"></span></div>
+    <nav class="nav-links">
+      <a href="<%= root %>#about"><%= site.nav.about %></a>
+      <a href="<%= root %>#services"><%= site.nav.services %></a>
+      <a href="<%= root %>blog/"><%= site.blog.navLabel %></a>
+      <div class="lang-switch">
+        <a href="<%= langPaths.uk %>" data-lang="UK"<% if (activeLang === 'UK') { %> class="active"<% } %>>UA</a><span>·</span>
+        <a href="<%= langPaths.en %>" data-lang="EN"<% if (activeLang === 'EN') { %> class="active"<% } %>>EN</a><span>·</span>
+        <a href="<%= langPaths.ru %>" data-lang="RU"<% if (activeLang === 'RU') { %> class="active"<% } %>>RU</a>
+      </div>
+      <a href="https://t.me/khoryakova" class="btn-solid btn-solid-mobile" target="_blank" rel="noopener"><%= site.nav.cta %></a>
+    </nav>
+    <a href="https://t.me/khoryakova" class="btn-solid" target="_blank" rel="noopener"><%= site.nav.cta %></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="<%= site.nav.menuLabel %>" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
